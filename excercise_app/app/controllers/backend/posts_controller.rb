@@ -6,11 +6,19 @@ class Backend::PostsController < Backend::BackendController
   # GET /posts.json
   
   def index
+    #raise params[:page].inspect
+    @current_page = params[:page].present? ? (params[:page].to_i+1) : 1
+    @page_limit = 10
+    page_off = params[:page].present? ? params[:page].to_i : 1
+    @page_off_set = (@current_page - 1) * @page_limit  # 2-1 =1 *10 10 
+    logger.debug params[:page]
     if params[:search].present?
       #raise params[:search].inspect
       @posts = Post.where(['title LIKE ? ', "%#{params[:search]}%"])
+    elsif params[:page].present?
+      @posts = Post.where(:published => true).limit(@page_limit).offset(@page_offset)
     else
-    @posts = Post.all # to retrive all the post
+      @posts = Post.all # to retrive all the post
     end
     end
 
@@ -76,6 +84,6 @@ class Backend::PostsController < Backend::BackendController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :published)
     end
 end

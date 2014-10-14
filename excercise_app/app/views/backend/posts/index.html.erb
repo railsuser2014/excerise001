@@ -36,3 +36,4 @@
 <br>
 
 <%= link_to 'New Post', new_backend_post_path %>
+<%= link_to 'list', backend_posts_path(page: @current_page, page_limite: @page_limit, page_off: @page_off_set)  %>
