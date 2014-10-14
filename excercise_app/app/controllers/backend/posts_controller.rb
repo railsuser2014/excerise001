@@ -1,4 +1,4 @@
-class Backend::PostsController < ApplicationController
+class Backend::PostsController < Backend::BackendController
   
    before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -6,8 +6,13 @@ class Backend::PostsController < ApplicationController
   # GET /posts.json
   
   def index
+    if params[:search].present?
+      #raise params[:search].inspect
+      @posts = Post.where(['title LIKE ? ', "%#{params[:search]}%"])
+    else
     @posts = Post.all # to retrive all the post
-  end
+    end
+    end
 
   # GET /posts/1
   # GET /posts/1.json

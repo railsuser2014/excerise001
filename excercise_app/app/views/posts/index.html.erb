@@ -21,6 +21,10 @@
   </tbody>
 </table>
 
+<%= link_to 'New Post ', new_backend_post_path %> | 
+<%= link_to('Login ', new_login_path) unless session[:author_id] %> |
+<%= link_to('Log out ', logout_logins_path, :method => :delete) unless !session[:author_id] %>
+
 <br>
 
 
