@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   
   def create 
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
+    @comment = @post.comments.build(comment_params)
     @comment.user_id = session[:user_id]
     logger.info params[:post_id]
     if @comment.save

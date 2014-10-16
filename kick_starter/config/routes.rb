@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :cars, :only => [:index, :show, :new, :create]
+  
   resources :users, only:[:new, :create,:update, :destroy, :index]
   
   resources :projects, shallow: true do
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:edit, :update, :destroy]
   
   resources :posts do  #for allowing user to comment for posts
-    resources :comments
+    resources :comments, only: [:crate, :update, :edit,:index]
   end
   #session login and logout routes
   controller :sessions do
