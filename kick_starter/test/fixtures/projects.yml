@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  budget: 9.99
+  published: false
+  closed: false
+  target_date: 2014-10-15
+  category: MyString
+  description: MyText
+
+two:
+  title: MyString
+  budget: 9.99
+  published: false
+  closed: false
+  target_date: 2014-10-15
+  category: MyString
+  description: MyText

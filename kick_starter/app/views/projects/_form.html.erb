@@ -1,0 +1,46 @@
+<div class="form form-profile">
+  
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row-item clearfix">
+    <%= f.label :title, class:"lbl"  %>
+    <%= f.text_field :title,  class:"txt" %>
+     <p class="rs description-input">project title appear</p>
+  </div>
+  <div class="row-item clearfix">
+    <%= f.label :budget, class:"lbl"  %>
+    <%= f.text_field :budget, class:"txt" %>
+  </div>
+  
+  <div class="row-item clearfix">
+    <%= f.label :target_date, class:"lbl"  %>
+    <%= f.date_select :target_date %>
+  </div>
+  <div class="row-item clearfix">
+    <%= f.label :category, class:"lbl" %>
+       <div class="val">
+    <%= f.text_field :category, class:"txt" %>
+    </div>
+  </div>
+  <div class="row-item clearfix">
+    <%= f.label :description, class:"lbl" %>
+     <div class="val">
+    <%= f.text_area :description, class:"txt" %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

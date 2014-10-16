@@ -1,0 +1,31 @@
+<div class="form form-profile">
+<%- @pledge ||= @project.pledges.build %>
+<%= form_for([@project,@pledge]) do | f| %>
+  <% if @pledge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pledge.errors.count, "error") %> prohibited this pledge from being saved:</h2>
+<ul>
+        <% @pledge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      
+    </div>
+  <% end %>
+   <div class="row-item clearfix">
+    <%= f.label :amount, class:"lbl" %><br>
+   <%= f.text_field :amount,  class:"txt" %>
+  </div>
+
+    <div class="row-item clearfix">
+    <%= f.label :desc, class:"lbl" %><br>
+    <%= f.text_area :desc, class:"txt" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+
+<% end %>
+</div>
+

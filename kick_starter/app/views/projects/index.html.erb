@@ -1,0 +1,33 @@
+<h1>Available Project</h1>
+
+<table class="table table-bordered  table-hover">
+  <thead>
+    <tr>
+      <th class="col-md-2">Title</th>
+      <th class="col-md-2">Budget</th>
+       <th class="col-md-2">Target date</th>
+      <th class="col-md-2">Category</th>
+      <th class="col-md-2">Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.budget %></td>
+        <td><%= project.target_date %></td>
+        <td><%= project.category %></td>
+        <td><%= project.description %></td>
+        <td><%= link_to 'Show', project, class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_project_path(project), class: "btn btn-success btn-sm" %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>

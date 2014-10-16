@@ -1,0 +1,3 @@
+== README
+[KickStarter for Sample Rails] [Developed for Training]
+

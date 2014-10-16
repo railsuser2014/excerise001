@@ -10,4 +10,15 @@
   <%= @post.content %>
 </p>
 
+<hr/>
+
+<h2>comment </h2>
+
+<ul id="comments" attr-post-id= "<%= @post.id %>">
+  <%= render :partial => 'comments/comment', :collection=> @post.comments %> 
+</ul>
+<hr/>
+
+<%= render 'comments/form' %>
+
 <%= link_to 'Back', posts_path %>

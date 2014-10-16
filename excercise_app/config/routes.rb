@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'comments/create'
+
   namespace :backend do 
     resources :posts
   end
   
   
-  resources :posts , :only=> [:show, :index]
+  resources :posts , :only=> [:show, :index] do
+    resources :comments, :only => [:create, :index]
+  end
 
   resources :logins, :only => [:new, :create] do 
     delete 'logout', :on => :collection

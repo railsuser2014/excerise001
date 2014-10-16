@@ -1,0 +1,23 @@
+<h1>Available Posts</h1>
+
+<table class="table table-bordered  table-hover">
+  <thead>
+    <tr>
+      <th class="col-md-2">Post Desc</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= link_to 'Edit', edit_post_path(post,:project_id => @project.id), class: "btn btn-success btn-sm" %></td>
+        <td><%= link_to 'Destroy', post_path(post,:project_id => @project.id), method: :delete, data: { confirm: 'Are you sure?' },           class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,45 @@
+<div class="home-feature-category">
+        <div class="container_12 clearfix">
+            <div class="grid_15 left-lst-category">
+                <div class="wrap-lst-category">
+                    <h3 class="title-welcome rs">Kick Start Projects</h3>
+                    <p class="description rs">Hands On Kick Start Project by RailsUsers</p>
+                    
+                </div>
+            </div>            
+            <div class="clear"></div>
+        </div>
+    </div><!--end: .home-feature-category -->
+
+    <div class="home-popular-project">
+        <div class="container_12">
+            <div class="grid_12 wrap-title">
+                <h2 class="common-title">Recent Projects</h2>
+              <%= link_to "View All", projects_path, class:"be-fc-orange" %>  
+                </div>
+            <div class="clear"></div>
+            <div class="lst-popular-project clearfix">
+              <% @projects.each do |project| %>
+                <div class="grid_3">
+                    <div class="project-short sml-thumb">
+                        <div class="top-project-info">
+                            <div class="content-info-short clearfix">
+                                  <div class="wrap-short-detail">
+                                    <%= link_to project do %>
+                                    <h3 class="rs acticle-title"><%= project.title %></h3>
+                                    <p class="rs tiny-desc">Budget <%= project.budget %></p>
+                                    <p class="rs title-description"> <%= project.description %></p>
+                                    <p class="rs project-location"> <%= project.user_id %>
+                                        <i class="icon iLocation"></i>
+                                       
+                                    </p>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </div>
+                </div><!--end: .grid_3 > .project-short-->
+              <% end %>
+                
+                

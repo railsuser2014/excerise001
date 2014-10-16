@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function executeQuery()
+{
+  alert("called")
+  $.ajax({
+    url: '/posts/' + $('#comments').attr('attr-post-id') + '/comments.js',
+    success:function(data)
+    {
+      setTimeout(executeQuery, 5000);
+    }
+  });
+  
+  
+}
+
+$(document).ready (function()
+      {
+        //f($('#comments').length)
+        //setTimeout(executeQuery,5000); //commented out for disable auto call
+      }               
+                   
+  );

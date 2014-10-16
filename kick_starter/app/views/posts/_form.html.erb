@@ -1,0 +1,29 @@
+<div class="form form-profile">
+<%- @post ||= @project.posts.build %>
+<%= form_for([@project,@post]) do | f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      
+    </div>
+  <% end %>
+
+  <div class="row-item clearfix">
+    <%= f.label :content, class:"lbl" %><br>
+    <div class="span9">
+    <%= f.text_area :content,  rows: 6, cols:50, class:"span6", class:"txt"  %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+
+<% end %>
+</div>
+
