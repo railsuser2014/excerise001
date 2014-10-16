@@ -11,7 +11,7 @@ FactoryGirl.define do
 #       sometrhing ""
     end
     
-    assocation :organization, :factory => :microsoft
+    #assocation :organization, :factory => :microsoft
   end
   
 end
